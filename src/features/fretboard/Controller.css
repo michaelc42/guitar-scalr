@@ -1,0 +1,25 @@
+.controller {
+    margin: 20px 0;
+    background: white;
+    display: flex;
+    gap: 10px;
+}
+
+.controller{
+    align-items: center;
+    justify-content: center;
+    pad: 10px;
+}
+
+.root-color-sample{
+    color: white;
+    background: green;
+    border: 10px solid green;
+    border-radius: 50%;
+}
+.note-color-sample{
+    color: white;
+    background: teal;
+    border: 10px solid teal;
+    border-radius: 50%;
+}
