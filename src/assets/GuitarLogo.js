@@ -1,8 +1,13 @@
-<?xml version="1.0" encoding="iso-8859-1"?>
-<!-- Generator: Adobe Illustrator 18.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 297 297" style="enable-background:new 0 0 297 297;" xml:space="preserve">
+import React from 'react';
+
+export const GuitarLogo = () => {
+    return (
+       <>
+{/*  */}
+            <svg version="1.1" id="Capa_1"
+                x="0px" y="0px"
+                viewBox="0 0 297 297" style="enable-background:new 0 0 297 297;"
+            >
 <g>
 	<path style="fill:#F9B65F;" d="M155.629,218.245c8.355-10.711,32.4-18.058,41.303-26.961c18.891-18.891,7.414-48.252-17.775-73.441
 		s-54.549-36.666-73.441-17.775c-8.903,8.903-16.25,32.947-26.961,41.303c-21.989,17.153-47.71,9.413-64.676,26.379
@@ -61,3 +66,9 @@
 </g>
 </svg>
 
+
+</>
+
+
+    )
+};

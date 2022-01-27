@@ -1,7 +1,10 @@
 import React from 'react';
+import { PlayScale } from '../toneGenerator/PlayScale';
 import stylecss from './Controller.css'
-export const Controller = ({ scales, setScale, scaleNames, root, setRoot, instruments, setInstrument }) => {
-    const notes = ['A', 'A#', 'B', 'C', 'C#', 'D', 'D#','E','F','F#','G','G#'] 
+import { getScalesNotes, scaleNames } from '../../data/scales.js'
+import { NOTES } from './appData/Notes'
+
+export const Controller = ({ scale, scales, setScale, scaleNames, root, setRoot, instruments, setInstrument, scaleNotes }) => {
 
     const scaleChangeHandler = (e) => {
         setScale(e.target.value)
@@ -14,8 +17,6 @@ export const Controller = ({ scales, setScale, scaleNames, root, setRoot, instru
     const instrumentChangeHandler = (e) => {
         setInstrument(e.target.value)
     }
-
-
 
     return (
         <section className='controller'>
@@ -30,7 +31,7 @@ export const Controller = ({ scales, setScale, scaleNames, root, setRoot, instru
                 <label>Root: </label>
                 <select>
                     <option></option>
-                    {notes.map(x => <option value={x}>{x}</option>)}
+                    {NOTES.map(x => <option value={x}>{x}</option>)}
                 </select>
             </form>
             <form onChange={scaleChangeHandler}>
@@ -40,6 +41,10 @@ export const Controller = ({ scales, setScale, scaleNames, root, setRoot, instru
                     {scaleNames.map(x => <option value={x}>{x}</option>)}
                 </select>
             </form>
+            <PlayScale
+                scale={scaleNotes}
+            />
+
             <div>Key: <span className='root-color-sample'>Root</span> <span className='note-color-sample'>Note</span></div>
         </section>
       

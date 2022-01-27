@@ -1,7 +1,6 @@
 import React from 'react';
 import { ToneComponent } from './ToneComponent';
 import * as Tone from 'tone'
-import { ToneBufferSource } from 'tone';
 
 export const PlayScale = ({ scale }) => {
     const synth = new Tone.Synth().toDestination();
@@ -11,7 +10,7 @@ export const PlayScale = ({ scale }) => {
         let originalToneMod = 2
         let shiftFlag = false
         for (let note of scale) {
-            if ((scale[0] !== 'C#' && note === 'C') || (scale[0] !== 'C' && note === 'C#') && !shiftFlag) {
+            if (((scale[0] !== 'C#' && note === 'C') || (scale[0] !== 'C' && note === 'C#')) && !shiftFlag) {
                 ++toneMod
                 shiftFlag = true
             } 

@@ -33,19 +33,19 @@ export const Fretboard = (props) => {
             let root = scale[0]
             let inScale = false
             if (scale.includes(note.slice(0, -1))) inScale = true
-            
+            console.log(root, note)
 
             if (stringNum === 0) {
                 if ([3, 5, 7, 9].includes(i)) {
-                    frets.push(<div onClick={toneClickHandler} value={note} className={`note-fret single-fretmark ${inScale ?'show-note': ''} ${(note === root) ? 'root-style': '' }`} date-note={note}></div>)
+                    frets.push(<div onClick={toneClickHandler} value={note} className={`note-fret single-fretmark ${inScale ?'show-note': ''} ${(note.slice(0, -1) === root) ? 'root-style': '' }`} date-note={note}></div>)
                 } else if ((i) === 12) {
-                    frets.push(<div onClick={toneClickHandler} value={note} className={`note-fret ${inScale ?'show-note': ''} ${(note === root) ? 'root-style': '' }`} date-note={note}><div className='double-fretmark'></div></div>)
+                    frets.push(<div onClick={toneClickHandler} value={note} className={`note-fret ${inScale ?'show-note': ''} ${(note.slice(0, -1) === root) ? 'root-style': '' }`} date-note={note}><div className='double-fretmark'></div></div>)
                 } else {
-                    frets.push(<div onClick={toneClickHandler} value={note} className={`note-fret ${inScale ?'show-note': ''} ${(note === root) ? 'root-style': '' }`} date-note={note}></div>)
+                    frets.push(<div onClick={toneClickHandler} value={note} className={`note-fret ${inScale ?'show-note': ''} ${(note.slice(0, -1) === root) ? 'root-style': '' }`} date-note={note}></div>)
                 
                 }
             } else {
-                    frets.push(<div onClick={toneClickHandler} value={note} className={`note-fret ${inScale ?'show-note': ''} ${(note === root) ? 'root-style': '' }`} date-note={note}></div>)
+                    frets.push(<div onClick={toneClickHandler} value={note} className={`note-fret ${inScale ?'show-note': ''} ${(note.slice(0, -1) === root) ? 'root-style': '' }`} date-note={note}></div>)
                 
             }
         }

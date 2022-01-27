@@ -1,5 +1,5 @@
 .controller {
-    margin: 20px 0;
+    padding: 20px 0;
     background: white;
     display: flex;
     gap: 10px;
@@ -8,7 +8,6 @@
 .controller{
     align-items: center;
     justify-content: center;
-    pad: 10px;
 }
 
 .root-color-sample{
