@@ -29,8 +29,6 @@ export const Index = () => {
             <Controller
                 scaleNames = {scaleNames}
                 setScale={setScaleName}
-                scale = {scaleName}
-                root={root}
                 setRoot={setRoot}
                 instruments={instrumentsList}
                 setInstrument={setInstrument}

@@ -4,7 +4,7 @@ import stylecss from './Controller.css'
 import { getScalesNotes, scaleNames } from '../../data/scales.js'
 import { NOTES } from './appData/Notes'
 
-export const Controller = ({ scale, scales, setScale, scaleNames, root, setRoot, instruments, setInstrument, scaleNotes }) => {
+export const Controller = ({setScale, scaleNames, root, setRoot, instruments, setInstrument, scaleNotes }) => {
 
     const scaleChangeHandler = (e) => {
         setScale(e.target.value)
@@ -21,31 +21,38 @@ export const Controller = ({ scale, scales, setScale, scaleNames, root, setRoot,
     return (
         <section className='controller'>
             <h2>CONTROLLER</h2>
-            <form onChange={instrumentChangeHandler}>
-                <label>Instruments: </label>
-                <select>
-                    {instruments.map(x => <option value={x} default>{x}</option>)}
-                </select>
-            </form>
-            <form onChange={rootChangeHandler}>
-                <label>Root: </label>
-                <select>
-                    <option></option>
-                    {NOTES.map(x => <option value={x}>{x}</option>)}
-                </select>
-            </form>
-            <form onChange={scaleChangeHandler}>
-                <label>Scale: </label>
-                <select>
-                    <option></option>
-                    {scaleNames.map(x => <option value={x}>{x}</option>)}
-                </select>
-            </form>
-            <PlayScale
-                scale={scaleNotes}
-            />
+            <section>
+                
+                <div className='instrument-controller'>
+                    <form onChange={instrumentChangeHandler}>
+                        <label>Instruments: </label>
+                        <select>
+                            {instruments.map(x => <option value={x} default>{x}</option>)}
+                        </select>
+                    </form>
+                </div>
+                <div className='scale-controller'>
+                    <form onChange={rootChangeHandler}>
+                        <label>Root: </label>
+                        <select>
+                            <option></option>
+                            {NOTES.map(x => <option value={x}>{x}</option>)}
+                        </select>
+                    </form>
+                    <form onChange={scaleChangeHandler}>
+                        <label>Scale: </label>
+                        <select>
+                            <option></option>
+                            {scaleNames.map(x => <option value={x}>{x}</option>)}
+                        </select>
+                    </form>
+                    <PlayScale
+                        scale={scaleNotes}
+                    />
+                </div>
 
-            <div>Key: <span className='root-color-sample'>Root</span> <span className='note-color-sample'>Note</span></div>
+                <div className="key-style">Key: <span className='root-color-sample'>Root</span> <span className='note-color-sample'>Note</span></div>
+            </section>
         </section>
       
     )

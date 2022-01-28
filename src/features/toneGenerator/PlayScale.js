@@ -1,5 +1,4 @@
 import React from 'react';
-import { ToneComponent } from './ToneComponent';
 import * as Tone from 'tone'
 
 export const PlayScale = ({ scale }) => {
@@ -25,14 +24,13 @@ export const PlayScale = ({ scale }) => {
     }
 
     let returnElement = () => {
-        console.log(scale.length)
         if (scale.length === 0) {
             return <button onClick={playScaleClickHandler} disabled>Pick a Scale</button>
         }
         return <button onClick={playScaleClickHandler}>Play Scale</button>
     }
     return (
-        <div>
+        <div className='play-button'>
             {returnElement()}
         </div>
     )

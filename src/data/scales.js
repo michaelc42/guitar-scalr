@@ -9,59 +9,63 @@
     // Ahava Raba Mode is: R, H, 1 1/2, H, W, H, W, W
     // A minor pentatonic blues scale (no sharped 5) is: R, 1 1/2, W, W, 1 1/2, W
     // A A# B C C# D D# E F F# G G# A
+import { NOTES } from '../features/fretboard/appData/Notes'
 
+import {SCALES} from '../features/fretboard/appData/Scales'
 
-const notes = ['A', 'A#', 'B', 'C', 'C#', 'D', 'D#','E','F','F#','G','G#']
+// const SCALES = [
+//         {
+//             name: 'Major',
+//             steps: ['R', 'W', 'W', 'H', 'W', 'W', 'W']
 
-const scalesInSteps = [
-        {
-            name: 'Major',
-            steps: ['R', 'W', 'W', 'H', 'W', 'W', 'W']    
-    
-        },
-        {
-            name: 'Harmonic Minor',
-            steps: ['R', 'W', 'H', 'W', 'W', 'H', '1.5']
-        },
-        {
-            name: 'Minor Pentatonic',
-            steps: ['R', '1.5', 'W', 'W', '1.5']
-        },
-        {
-            name: 'Ahava Raba',
-            steps: ['R', 'H', '1.5', 'H', 'W', 'H', 'W']
-        }
-        
-]
+//         },
+//         {
+//             name: 'Harmonic Minor',
+//             steps: ['R', 'W', 'H', 'W', 'W', 'H', '1.5']
+//         },
+//         {
+//             name: 'Minor Pentatonic',
+//             steps: ['R', '1.5', 'W', 'W', '1.5']
+//         },
+//         {
+//             name: 'Ahava Raba',
+//             steps: ['R', 'H', '1.5', 'H', 'W', 'H', 'W']
+//         }
+
+// ]
+
 
 const scaleNames = []
-for (const prop in scalesInSteps) {
-    scaleNames.push(scalesInSteps[prop].name)
+for (const prop in SCALES) {
+    scaleNames.push(SCALES[prop].name)
 }
 
+//get notes from scale using integer
 const getNote = (startIndex, index) => {
-        if (startIndex + index >= notes.length) {
-            startIndex = Math.abs(((notes.length) - startIndex - index))
-            return notes[startIndex]
+        if (startIndex + index >= NOTES.length) {
+            startIndex = Math.abs(((NOTES.length) - startIndex - index))
+            return NOTES[startIndex]
         }
 
-        return notes[startIndex + index]
+        return NOTES[startIndex + index]
     }
 
+//takes steps converted to integers and returns scale in note names
 const intStepsToNotes = (scale, root) => {
     let convertedScale = []
-    let startIndex = notes.indexOf(root)
+    let startIndex = NOTES.indexOf(root)
     let newNote = root
     for (let item of scale) {
         newNote = getNote(startIndex, parseInt(item))
         convertedScale.push(getNote(startIndex, parseInt(item)))
-        startIndex = notes.indexOf(newNote)
+        startIndex = NOTES.indexOf(newNote)
     }
 
     return convertedScale
 }
-    
 
+
+//takes raw scale steps and changes them to integers
 const stepsToInt = (scale) => {
     let scaleInInts = []
     for (let item of scale) {
@@ -83,10 +87,10 @@ const stepsToInt = (scale) => {
     return scaleInInts
 }
 
+//exported helper function 
 const getScalesNotes = (root, scaleName) => {
     if (root.length === 0 || scaleName.length === 0) return []
-    let scale = scalesInSteps.filter(obj => obj.name === scaleName)
-    console.log('scale: ', scale)
+    let scale = SCALES.filter(obj => obj.name === scaleName)
     const convSteps = stepsToInt(scale[0].steps)
     return intStepsToNotes(convSteps, root)
 }
