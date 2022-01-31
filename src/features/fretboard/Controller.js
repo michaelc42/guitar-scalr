@@ -3,6 +3,7 @@ import { PlayScale } from '../toneGenerator/PlayScale';
 import stylecss from './Controller.css'
 import { getScalesNotes, scaleNames } from '../../data/scales.js'
 import { NOTES } from './appData/Notes'
+import { Form, Container, Row, Col } from 'react-bootstrap';
 
 export const Controller = ({setScale, scaleNames, root, setRoot, instruments, setInstrument, scaleNotes }) => {
 
@@ -19,41 +20,39 @@ export const Controller = ({setScale, scaleNames, root, setRoot, instruments, se
     }
 
     return (
-        <section className='controller'>
+        <Container className='controller'>
             <h2>CONTROLLER</h2>
-            <section>
+                <Row>
+                    <Col>    
                 
-                <div className='instrument-controller'>
-                    <form onChange={instrumentChangeHandler}>
-                        <label>Instruments: </label>
-                        <select>
-                            {instruments.map(x => <option value={x} default>{x}</option>)}
-                        </select>
-                    </form>
-                </div>
-                <div className='scale-controller'>
-                    <form onChange={rootChangeHandler}>
-                        <label>Root: </label>
-                        <select>
-                            <option></option>
-                            {NOTES.map(x => <option value={x}>{x}</option>)}
-                        </select>
-                    </form>
-                    <form onChange={scaleChangeHandler}>
-                        <label>Scale: </label>
-                        <select>
-                            <option></option>
-                            {scaleNames.map(x => <option value={x}>{x}</option>)}
-                        </select>
-                    </form>
-                    <PlayScale
-                        scale={scaleNotes}
-                    />
-                </div>
-
-                <div className="key-style">Key: <span className='root-color-sample'>Root</span> <span className='note-color-sample'>Note</span></div>
-            </section>
-        </section>
+                        <Form.Select onChange={instrumentChangeHandler} aria-label="Default select example">
+                            {instruments.map(x => <option key={x} value={x} default>{x}</option>)}
+                        </Form.Select>
+                    
+                    </Col>
+                    <Col>
+                            <Form.Select onChange={rootChangeHandler} aria-label="Default select example">
+                                    <option>Select Root</option>
+                                    {NOTES.map(x => <option key={x} value={x}>{x}</option>)}
+                            </Form.Select>
+                            <Form.Select className="mt-2" onChange={scaleChangeHandler} aria-label="Default select example">
+                                    <option>Select Scale</option>
+                                    {scaleNames.map(x => <option key={x} value={x}>{x}</option>)}
+                            </Form.Select>
+                            <PlayScale
+                                scale={scaleNotes}
+                            />
+                    </Col>
+                    <Col>
+                    <div className="key-style">Key: <span className='root-color-sample'>Root</span> <span className='note-color-sample'>Note</span></div>
+                    <div className="mt-3">
+                        <div><h5>Directions:</h5></div>
+                        <div>-Default instrument is guitar.</div>
+                        <div>-Pick a root and pick a scale.  Hit play to hear it!</div>
+                    </div>
+                    </Col>
+                </Row>
+        </Container>
       
     )
 };

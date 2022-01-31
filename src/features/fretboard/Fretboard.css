@@ -7,7 +7,7 @@
     --double-fretmark-position-1: calc(var(--fretboard-height)*.33);
     --double-fretmark-position-2: calc(var(--fretboard-height)*.67);
     --root-color: green;
-    --fret-width: 0;
+    --zero-fret-width: 9vw;
 }
 
 
@@ -80,7 +80,7 @@
         height: calc(var(--string-height)*1vh);
         /* background:linear-gradient(#eee, #999); */
         background-color: #f5d3c8;
-        background-image: linear-gradient(315deg, #f5d3c8 0%, #c8a383 74%);
+        background-image: linear-gradient(315deg, #e2c881 0%, #bb9472 74%);
         /* box-shadow: 76px 3px 10px #755828; */
         z-index: 1;
         position: absolute;
@@ -91,17 +91,16 @@
         display: flex;
         flex: 1;
         border-right: 2vh solid;
-        border-image: linear-gradient(to left, rgb(73, 72, 72), #bbb, rgb(196, 188, 188)) 1 100%;
+        border-image: linear-gradient(to left, rgb(73, 72, 72), #bbb, rgb(189, 188, 174)) 1 100%;
         justify-content: center;
         align-items: center;
         position: relative;
-        max-width: calc(var(--fret-width)*1vw);
     }
 
     .note-fret:first-child {
         background: #161717;
-        min-width: 15vh;
-        border-right: 12px solid;
+        min-width: var(--zero-fret-width);
+        border-right: .5vw solid;
         flex-grow: 0;
         flex-shrink: 0;
         border-image: linear-gradient(to left, #bbb, #fff, #bbb) 1 100%;

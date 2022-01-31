@@ -1,13 +1,13 @@
 import React from 'react';
 //import logo from './logo.svg';
-import { Index } from './features/fretboard/Index';
+import { FretboardApp } from './features/fretboard/';
 import './App.css';
 
 
 function App() {
   return (
     <div className="App">
-      <Index />
+      <FretboardApp />
     </div>
   );
 }

@@ -1,5 +1,6 @@
 import React from 'react';
 import * as Tone from 'tone'
+import { Button } from 'react-bootstrap';
 
 export const PlayScale = ({ scale }) => {
     const synth = new Tone.Synth().toDestination();
@@ -25,9 +26,9 @@ export const PlayScale = ({ scale }) => {
 
     let returnElement = () => {
         if (scale.length === 0) {
-            return <button onClick={playScaleClickHandler} disabled>Pick a Scale</button>
+            return <Button className="mt-2" onClick={playScaleClickHandler} variant="warning" disabled>Pick a Scale</Button>
         }
-        return <button onClick={playScaleClickHandler}>Play Scale</button>
+        return <Button className="mt-2" onClick={playScaleClickHandler} variant='success'>Play Scale</Button>
     }
     return (
         <div className='play-button'>

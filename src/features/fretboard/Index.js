@@ -5,11 +5,13 @@ import stylesheet from './Index.css'
 import { getScalesNotes, scaleNames } from '../../data/scales.js'
 import logo from '../../logo.svg';
 import { instruments, instrumentsList } from './appData/instrumentList'
+import { NoteSaver } from './NoteSaver'
 
-export const Index = () => {   
+export const FretboardApp = () => {   
     const [scaleName, setScaleName] = useState('');
     const [root, setRoot] = useState('');
     const [instrument, setInstrument] = useState(instrumentsList[0])
+    const [savedNotes, setSavedNotes] = useState([])
 
     //initial settings
     let numberOfFrets = 13;
@@ -39,7 +41,12 @@ export const Index = () => {
                 numberOfFrets={numberOfFrets}
                 openStrings={openStrings}
                 scale={scaleNotes}
-
+                setSavedNotes={setSavedNotes}
+                savedNotes={savedNotes}
+            />
+            <NoteSaver
+                savedNotes={savedNotes}
+                setSavedNotes={setSavedNotes}
             />
         </div>   
     )

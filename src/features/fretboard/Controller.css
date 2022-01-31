@@ -1,39 +1,29 @@
-.controller section>* {
-    display: inline;
+.controller h2 {
+    text-align: center;
+}
+
+.root-color-sample, .note-color-sample{
+    color: white;
     padding: 10px;
-}
-
-.controller div>* {
-    display: inline;
-    margin: 5px;
-}
-
-.key-style {
-    height: auto;
+    border-radius: 25%;
 }
 
 .root-color-sample{
-    color: white;
-    background: green;
-    width: 10px;
-    height: 10px;
+    background: green;  
     border: 1px solid green;
-    border-radius: 50%;
 }
 .note-color-sample{
-    color: white;
     background: teal;
     border: 1px solid teal;
-    border-radius: 50%;
 }
 
 @media screen and (max-width:1024px) {
-.controller section>* {
-    display: block;
-    margin: 10px;
-}
+    .controller section>* {
+        display: block;
+        margin: 10px;
+    }
 
-.controller div>* {
-    display: inline;
-}
+    .controller div>* {
+        display: inline;
+    }
 }

@@ -2,6 +2,8 @@
 h1{
     background: red;
     padding: 3vh;
+    text-align: center;
+    justify-content: center;
 
 }
 
